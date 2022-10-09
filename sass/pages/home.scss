@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $primary-blue;
+  position: relative;
+  transition: .2s;
+}
+
+.header {
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  @include padding(20px);
+  @include flex(space-between, center);
+
+  .logo {
+    margin-left: 5px
+  }
+  .navbar {
+    @include flex(center, center);
+    gap: 40px;
+    margin-right: 5px;
+
+    a {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.main {
+  height: 100vh;
+  @include flex(center, center);
+  @include padding(20px);
+
+  .main_text, .main_img {
+    flex: 1 1;
+  }
+
+  .main_text {
+    padding: 20px;
+    
+    h1 {
+      font-size: clamp(3rem, 4vw, 5rem);
+      line-height: 1em;
+    }
+
+    .bigger {
+      font-size: clamp(6rem, 9vw, 12rem);
+    }
+
+    p {
+      font-size: clamp(0.8rem, 1.3vw, 1.3rem);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      padding: 10px 30px;
+      border-radius: 30px;
+      letter-spacing: 3px;
+    }
+  }
+
+  .main_img {
+    @include flex(center, flex-start);
+    padding-top: 20px;
+
+    img{
+      width: 50%;
+    }
+  }
+}
+
+.options {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  img {
+    width: 50px;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: all ease-in .2s;
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+.links {
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translate(-50%, -50%);
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 30px;
+
+  a {
+    img {
+      filter: invert(100%);
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header, .main {
+    flex-direction: column;
+  }
+
+  .header {
+    .logo {
+      img {
+        width: 30px;
+      }
+    }
+  }
+}

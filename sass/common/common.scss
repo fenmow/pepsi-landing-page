@@ -1,0 +1,9 @@
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $justify;
+}
+
+@mixin padding($padding) {
+  padding: $padding calc((100% - 1600px)/2);
+}
